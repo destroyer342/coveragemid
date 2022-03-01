@@ -13,7 +13,7 @@ viewEngine(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// init all web routes
+// init all web routess
 initWebRoute(app);
 
 let port = process.env.PORT || 8000;
