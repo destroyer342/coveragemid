@@ -18,7 +18,7 @@ let postWebhook = (req, res) =>{
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
             console.log('Sender PSID: ' + sender_psid);
-
+            persistentmenu(sender_psid);
             // Check if the event is a message or postback and
             // pass the event to the appropriate handler function
             if (webhook_event.message) {
@@ -64,7 +64,7 @@ let getWebhook = (req, res) => {
     }
 };
 
-persistentmenu(webhook_event.sender.id)
+
 function persistentmenu(sender_psid) {
     // Construct the message body
     let request_body = {
@@ -298,4 +298,5 @@ let callSendAPIWithTemplate = (sender_psid) => {
 module.exports = {
   postWebhook: postWebhook,
   getWebhook: getWebhook
+
 };
