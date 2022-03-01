@@ -173,7 +173,7 @@ function handlePostback(sender_psid, received_postback) {
     }
     // Send the message to acknowledge the postback
     callSendAPI(sender_psid, response);
-    persistentmenu(sender_psid)
+    persistentmenu(sender_psid);
 }
 
 // Sends response messages via the Send API
@@ -218,7 +218,7 @@ function handleMessage(sender_psid, message) {
         callSendAPIWithTemplate(sender_psid);
         return;
     }else {
-        callSendAPI(sender_psid,`Tanga hindi picture yan` );
+        callSendAPI(sender_psid,`Tanga hindi ppicture yan` );
     }
 
     // let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye" ];
