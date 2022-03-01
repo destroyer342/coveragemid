@@ -68,8 +68,8 @@ let getWebhook = (req, res) => {
 function persistentmenu(sender_psid) {
     // Construct the message body
     let request_body = {
-        "recipient": {
-            "id": sender_psid
+        "get_started": {
+            "payload": GET_STARTED_PAYLOAD
         },
         "persistent_menu": [
             {
@@ -189,7 +189,7 @@ function callSendAPI(sender_psid, response) {
 
     // Send the HTTP request to the Messenger Platform
     request({
-        "uri": "https://graph.facebook.com/v7.0/me/messages",
+        "uri": "https://graph.facebook.com/v13.0/me/messages",
         "qs": { "access_token": process.env.FB_PAGE_TOKEN },
         "method": "POST",
         "json": request_body
@@ -282,7 +282,7 @@ let callSendAPIWithTemplate = (sender_psid) => {
     };
 
     request({
-        "uri": "https://graph.facebook.com/v6.0/me/messages",
+        "uri": "https://graph.facebook.com/v13.0/me/messages",
         "qs": { "access_token": process.env.FB_PAGE_TOKEN },
         "method": "POST",
         "json": body
