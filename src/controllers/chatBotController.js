@@ -65,11 +65,12 @@ let getWebhook = (req, res) => {
 };
 
 
-let persistentmenu = async (sender_psid) => {
+let persistentmenu = async (req, res) => {
     // Construct the message body
+   
     let request_body = {
         "get_started": {
-            "payload": "GET_STARTED"
+            "payload": "yes"
         },
         "persistent_menu": [
             {
@@ -99,7 +100,7 @@ let persistentmenu = async (sender_psid) => {
             "https://coveragemid.herokuapp.com/", //link to your Heroku app
         ]
     };
-
+ 
     // Send the HTTP request to the Messenger Platform
     return new Promise((resolve, reject) => {
         try {
