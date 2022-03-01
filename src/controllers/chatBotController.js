@@ -68,9 +68,7 @@ let getWebhook = (req, res) => {
 function persistentmenu(sender_psid) {
     // Construct the message body
     let request_body = {
-        "get_started": {
-            "payload": GET_STARTED_PAYLOAD
-        },
+        "psid": sender_psid,
         "persistent_menu": [
             {
                 "locale": "default",
