@@ -78,14 +78,16 @@ let persistentmenu = async (req, res) => {
                 "composer_input_disabled": false,
                 "call_to_actions": [
                     {
-                        "type": "postback",
-                        "title": "Talk to an agent",
-                        "payload": "CARE_HELP"
+                        "type": "web_url",
+                        "title": "Shop now",
+                        "url": "https://www.originalcoastclothing.com/",
+                        "webview_height_ratio": "full"
                     },
                     {
-                        "type": "postback",
-                        "title": "Outfit suggestions",
-                        "payload": "CURATION"
+                        "type": "web_url",
+                        "title": "Shop now",
+                        "url": "https://www.originalcoastclothing.com/",
+                        "webview_height_ratio": "full"
                     },
                     {
                         "type": "web_url",
