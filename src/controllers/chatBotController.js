@@ -107,7 +107,7 @@ let persistentmenu = async (req, res) => {
     return new Promise((resolve, reject) => {
         try {
             request({
-                "uri": "https://graph.facebook.com/v13.0/me/custom_user_settings",
+                "uri": "https://graph.facebook.com/v10.0/me/messenger_profile",
                 "qs": { "access_token": process.env.FB_PAGE_TOKEN },
                 "method": "POST",
                 "json": request_body
@@ -115,7 +115,7 @@ let persistentmenu = async (req, res) => {
                 console.log('-------------------------------------------------------')
                 console.log('Logs setup persistent menu & get started button: ', response)
                 console.log('-------------------------------------------------------')
-                if (!err) {
+                if (!err) { 
                     return res.send('Setup done!')
                 } else {
                     return res.send('Something wrongs with setup, please check logs...')
