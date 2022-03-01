@@ -72,7 +72,32 @@ let persistentmenu = async (req, res) => {
         "get_started": {
             "payload": "yes"
         },
-     
+        "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": false,
+                "call_to_actions": [
+                    {
+                        "type": "web_url",
+                        "title": "Shop now",
+                        "url": "https://www.originalcoastclothing.com/",
+                        "webview_height_ratio": "full"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "Shop now",
+                        "url": "https://www.originalcoastclothing.com/",
+                        "webview_height_ratio": "full"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "Shop now",
+                        "url": "https://www.originalcoastclothing.com/",
+                        "webview_height_ratio": "full"
+                    }
+                ]
+            }
+        ],
         "whitelisted_domains": [
             "https://coveragemid.herokuapp.com/", //link to your Heroku app
         ]
