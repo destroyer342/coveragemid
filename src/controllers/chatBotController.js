@@ -67,21 +67,11 @@ let getWebhook = (req, res) => {
 
 let persistentmenu = async (req, res) => {
     // Construct the message body
-    body.entry.forEach(function(entry) {
-
-        // Gets the body of the webhook event
-        let webhook_event = entry.messaging[0];
-        console.log(webhook_event);
-
-        // Get the sender PSID
-        let sender_psid = webhook_event.sender.id;
-
-    });
+   
     let request_body = {
         "get_started": {
             "payload": "yes"
         },
-        "psid": sender_psid,
         "persistent_menu": [
             {
                 "locale": "default",
