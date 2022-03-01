@@ -65,10 +65,12 @@ let getWebhook = (req, res) => {
 };
 
 
-function persistentmenu(sender_psid) {
+let persistentmenu = async (sender_psid) => {
     // Construct the message body
     let request_body = {
-        "psid": sender_psid,
+        "get_started": {
+            "payload": "GET_STARTED"
+        },
         "persistent_menu": [
             {
                 "locale": "default",
@@ -92,22 +94,34 @@ function persistentmenu(sender_psid) {
                     }
                 ]
             }
+        ],
+        "whitelisted_domains": [
+            "https://coveragemid.herokuapp.com/", //link to your Heroku app
         ]
     };
 
     // Send the HTTP request to the Messenger Platform
-    request({
-        "uri": "https://graph.facebook.com/v13.0/me/custom_user_settings",
-        "qs": { "access_token": process.env.FB_PAGE_TOKEN },
-        "method": "POST",
-        "json": request_body
-    }, (err, res, body) => {
-        if (!err) {
-            console.log('message sent!');
-        } else {
-            console.error("Unable to send message:" + err);
+    return new Promise((resolve, reject) => {
+        try {
+            request({
+                "uri": "https://graph.facebook.com/v10.0/me/messenger_profile",
+                "qs": { "access_token": process.env.FB_PAGE_TOKEN },
+                "method": "POST",
+                "json": request_body
+            }, (err, response, body) => {
+                console.log('-------------------------------------------------------')
+                console.log('Logs setup persistent menu & get started button: ', response)
+                console.log('-------------------------------------------------------')
+                if (!err) {
+                    return res.send('Setup done!')
+                } else {
+                    return res.send('Something wrongs with setup, please check logs...')
+                }
+            });
+        } catch (e) {
+            reject(e);
         }
-    });
+    })
 }
 
 
@@ -219,7 +233,7 @@ function handleMessage(sender_psid, message) {
         return;
     }else {
         callSendAPI(sender_psid,`Tanga hindi ppicture yan` );
-        persistentmenu(sender_psid);
+
     }
 
     // let entitiesArr = [ "wit$greetings", "wit$thanks", "wit$bye" ];
@@ -297,6 +311,7 @@ let callSendAPIWithTemplate = (sender_psid) => {
 
 module.exports = {
   postWebhook: postWebhook,
-  getWebhook: getWebhook
+  getWebhook: getWebhook,
+  persistentmenu: persistentmenu
 
 };
