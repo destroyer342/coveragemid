@@ -214,7 +214,7 @@ function callSendAPI(sender_psid, response) {
         },
         "message": { 
             
-            "mid":response
+            "text":response
          }
     };
 
