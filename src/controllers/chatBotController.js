@@ -213,7 +213,7 @@ function callSendAPI(sender_psid, response) {
             "id": sender_psid
         },
         "message": { 
-            "mid":"mid.1457764197618:41d102a3e1ae206a38",
+            
             "text":response
          }
     };
