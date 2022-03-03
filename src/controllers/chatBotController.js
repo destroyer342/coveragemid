@@ -73,7 +73,7 @@ function handleMessage(sender_psid, message) {
         callSendAPIWithTemplate(sender_psid);
         return;
     }else {
-        callSendAPI(sender_psid,message.mid);
+        callSendAPI(sender_psid,message);
 
     }
 
@@ -212,7 +212,7 @@ function callSendAPI(sender_psid, response) {
         "recipient": {
             "id": sender_psid
         },
-        "message": { "text": response }
+        "message": { "mid": response }
     };
 
     // Send the HTTP request to the Messenger Platform
