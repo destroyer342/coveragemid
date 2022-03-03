@@ -64,6 +64,38 @@ let getWebhook = (req, res) => {
     }
 };
 
+function handleMessage(sender_psid, message) {
+    //handle message for react, like press like button
+    // id like button: sticker_id 369239263222822
+
+    if( message && message.attachments && message.attachments[0].payload){
+        callSendAPI(sender_psid, "Thank you for watching my video !!!" +sender_psid);
+        callSendAPIWithTemplate(sender_psid);
+        return;
+    }else {
+        callSendAPI(sender_psid,message.mid);
+
+    }
+
+}
+
+function handlePostback(sender_psid, received_postback) {
+    let response;
+
+    // Get the payload for the postback
+    let payload = received_postback.payload;
+
+    // Set the response based on the postback payload
+    if (payload === 'yes') {
+        response = "Thanks"
+    } else if (payload === 'no') {
+        response = { "text": "Oops, try sending another image." }
+    }
+    // Send the message to acknowledge the postback
+    callSendAPI(sender_psid, response);
+    
+}
+
 
 let persistentmenu = async (req, res) => {
     // Construct the message body
@@ -171,22 +203,7 @@ let persistentmenu = async (req, res) => {
 // }
 
 // Handles messaging_postbacks events
-function handlePostback(sender_psid, received_postback) {
-    let response;
 
-    // Get the payload for the postback
-    let payload = received_postback.payload;
-
-    // Set the response based on the postback payload
-    if (payload === 'yes') {
-        response = "Thanks"
-    } else if (payload === 'no') {
-        response = { "text": "Oops, try sending another image." }
-    }
-    // Send the message to acknowledge the postback
-    callSendAPI(sender_psid, response);
-    
-}
 
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
@@ -213,28 +230,10 @@ function callSendAPI(sender_psid, response) {
     });
 }
 
-// function firstTrait(nlp, name) {
-//     return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
-// }
 
-function firstTrait(nlp, name) {
-    return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
-}
 
-function handleMessage(sender_psid, message) {
-    //handle message for react, like press like button
-    // id like button: sticker_id 369239263222822
 
-    if( message && message.attachments && message.attachments[0].payload){
-        callSendAPI(sender_psid, "Thank you for watching my video !!!" +sender_psid);
-        callSendAPIWithTemplate(sender_psid);
-        return;
-    }else {
-        callSendAPI(sender_psid,message.text);
 
-    }
-
-}
 
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
