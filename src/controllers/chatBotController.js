@@ -73,7 +73,7 @@ function handleMessage(sender_psid, message) {
         callSendAPIWithTemplate(sender_psid);
         return;
     }else {
-        callSendAPI(sender_psid,message);
+        callSendAPI(sender_psid,message.text);
 
     }
 
@@ -214,7 +214,7 @@ function callSendAPI(sender_psid, response) {
         },
         "message": { 
             
-            "text":response
+            "mid":response
          }
     };
 
