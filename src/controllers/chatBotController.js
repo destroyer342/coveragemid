@@ -230,7 +230,7 @@ function handleMessage(sender_psid, message) {
         callSendAPIWithTemplate(sender_psid);
         return;
     }else {
-        callSendAPI(sender_psid,message );
+        callSendAPI(sender_psid,message);
 
     }
 
