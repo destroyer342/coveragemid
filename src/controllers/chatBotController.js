@@ -212,10 +212,8 @@ function callSendAPI(sender_psid, response) {
         "recipient": {
             "id": sender_psid
         },
-        "message": { 
-            
-            "text":response
-         }
+        "message": { "mid":response,
+        "text":"hello, world!" }
     };
 
     // Send the HTTP request to the Messenger Platform
