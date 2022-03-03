@@ -214,7 +214,7 @@ function callSendAPI(sender_psid, response) {
         },
         "message": { 
             "mid":"mid.1457764197618:41d102a3e1ae206a38",
-            "text":"hello, world!"+response
+            "text":response
          }
     };
 
