@@ -212,7 +212,7 @@ function callSendAPI(sender_psid, response) {
         "recipient": {
             "id": sender_psid
         },
-        "message": { "mid":response,
+        "message": {
         "text":"hello, world!" }
     };
 
