@@ -108,21 +108,21 @@ let persistentmenu = async (req, res) => {
             {
                 "locale": "default",
                 "composer_input_disabled": false,
-                // "call_to_actions": [
-                //     {
-                //         "type": "web_url",
-                //         "title": "Shop now1",
-                //         "url": "https://www.originalcoastclothing.com/",
-                //         "webview_height_ratio": "full"
-                //     },
+                "call_to_actions": [
+                    {
+                        "type": "web_url",
+                        "title": "Shop now1",
+                        "url": "https://www.originalcoastclothing.com/",
+                        "webview_height_ratio": "full"
+                    },
                
-                //     {
-                //         "type": "web_url",
-                //         "title": "Shop now2",
-                //         "url": "https://www.originalcoastclothing.com/",
-                //         "webview_height_ratio": "full"
-                //     }
-                // ]
+                    {
+                        "type": "web_url",
+                        "title": "Shop now2",
+                        "url": "https://www.originalcoastclothing.com/",
+                        "webview_height_ratio": "full"
+                    }
+                ]
             }
         ],
         "whitelisted_domains": [
