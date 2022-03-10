@@ -140,7 +140,7 @@ let persistentmenu = async (req, res) => {
                 "json": request_body
             }, (err, response, body) => {
                 console.log('-------------------------------------------------------')
-                console.log('Logs setup persistent menu & get started button: ', response)
+                console.log('Logs setup persistent menu & get started button: ', response.body)
                 console.log('-------------------------------------------------------')
                 if (!err) { 
                     return res.send('Setup done!')
