@@ -73,7 +73,10 @@ function handleMessage(sender_psid, message) {
         callSendAPIWithTemplate(sender_psid);
         return;
     }else {
-        callSendAPI(sender_psid,message.text);
+        response = {
+            "text": `You sent the message: "${received_message.text}"!`
+          }
+        callSendAPI(sender_psid,response);
 
     }
 
