@@ -134,8 +134,9 @@ let persistentmenu = async (req, res) => {
     return new Promise((resolve, reject) => {
         try {
             request({
-                "uri": "https://graph.facebook.com/v13.0/me/messenger_profile",
+                "uri": "https://graph.facebook.com/v13.0/me/custom_user_settings",
                 "qs": { "access_token": process.env.FB_PAGE_TOKEN },
+                "headers" : {"Content-Type" : "application/json"},
                 "method": "POST",
                 "json": request_body
             }, (err, response, body) => {
