@@ -107,7 +107,7 @@ let persistentmenu = async (req, res) => {
         "persistent_menu": [
             {
                 "locale": "default",
-                "composer_input_disabled": false
+                "composer_input_disabled": false,
                 // "call_to_actions": [
                 //     {
                 //         "type": "web_url",
@@ -134,9 +134,8 @@ let persistentmenu = async (req, res) => {
     return new Promise((resolve, reject) => {
         try {
             request({
-                "uri": "https://graph.facebook.com/v13.0/me/custom_user_settings",
+                "uri": "https://graph.facebook.com/v13.0/me/messenger_profile",
                 "qs": { "access_token": process.env.FB_PAGE_TOKEN },
-                "headers" : {"Content-Type" : "application/json"},
                 "method": "POST",
                 "json": request_body
             }, (err, response, body) => {
