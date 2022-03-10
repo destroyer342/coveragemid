@@ -121,7 +121,7 @@ let persistentmenu = async (req, res) => {
                         "title": "Shop now2",
                         "url": "https://www.originalcoastclothing.com/",
                         "webview_height_ratio": "full"
-                    }
+                    },
                     {
                         "type": "web_url",
                         "title": "Shop now3",
